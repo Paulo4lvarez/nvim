@@ -1,3 +1,4 @@
 {
+  "academic.nvim": { "branch": "main", "commit": "83865969059b2aaea2e7afcebaa60085e965d9f8" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" }
 }

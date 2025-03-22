@@ -28,7 +28,6 @@ vim.cmd("syntax on")
 
 -- Encoding
 vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
 
 -- Undo and backup
 vim.opt.undofile = true
