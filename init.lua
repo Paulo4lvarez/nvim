@@ -1,6 +1,3 @@
--- Plugin Manager
-require("config.lazy")
-
 -- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -12,7 +9,7 @@ vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
 
 -- Indentation
-vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
@@ -24,7 +21,7 @@ vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
 -- Syntax highlighting
-vim.cmd("syntax on")
+-- vim.cmd("syntax on")
 
 -- Encoding
 vim.opt.encoding = "utf-8"
@@ -47,3 +44,9 @@ vim.opt.sidescrolloff = 12
 -- Command-line completion
 vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"
+
+-- Leaderkey and other keymappings
+vim.g.mapleader = " "
+
+-- Plugin Manager
+require("config.lazy")
