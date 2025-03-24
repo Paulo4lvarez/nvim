@@ -10,7 +10,9 @@ return {
   lazy = false,
   ---@module "neo-tree"
   ---@type neotree.Config?
-  opts = {
-    -- fill any relevant options here
-  },
+  config = function()
+    vim.keymap.set('n', '<leader>nn', ':Neotree filesystem reveal left<CR>', {})
+
+    require("neotree").setup()
+  end
 }
