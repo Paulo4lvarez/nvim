@@ -8,11 +8,7 @@ return {
     -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   lazy = false,
-  ---@module "neo-tree"
-  ---@type neotree.Config?
   config = function()
     vim.keymap.set('n', '<leader>nn', ':Neotree filesystem reveal left<CR>', {})
-
-    require("neotree").setup()
   end
 }

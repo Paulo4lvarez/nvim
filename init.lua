@@ -41,8 +41,9 @@ vim.opt.writebackup = false
 vim.opt.swapfile = false
 
 -- Visual feedback
-vim.opt.cursorline = true
-vim.opt.termguicolors = true
+-- vim.opt.cursorline = true
+-- vim.opt.termguicolors = true
+vim.opt.showmode = false
 
 -- Scrolling and performance
 vim.opt.scrolloff = 12
