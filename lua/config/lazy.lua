@@ -15,6 +15,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Leader Key
+vim.g.mapleader = " "
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
