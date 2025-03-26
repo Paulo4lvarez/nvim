@@ -1,13 +1,13 @@
 return {
   {
     "williamboman/mason.nvim",
-    config = function ()
+    config = function()
       require("mason").setup()
-    end
+    end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    config = function ()
+    config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
           -- Config
@@ -21,26 +21,26 @@ return {
           "html",
           "jsonls",
           -- Java
-          -- "java_language_server",
+          "java_language_server",
           "kotlin_language_server",
-          -- C Family 
+          -- C Family
           "clangd",
           "cmake",
           -- Shell
-          "bashls"
-        }
+          "bashls",
+        },
       })
-    end
+    end,
   },
   {
     "neovim/nvim-lspconfig",
-    config = function ()
+    config = function()
       local lspconfig = require("lspconfig")
 
-      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-      vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
+      vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 
       lspconfig.lua_ls.setup({})
       lspconfig.eslint.setup({})
@@ -55,6 +55,6 @@ return {
       lspconfig.clangd.setup({})
       lspconfig.cmake.setup({})
       lspconfig.bashls.setup({})
-    end
-  }
+    end,
+  },
 }

@@ -52,4 +52,3 @@ vim.opt.sidescrolloff = 12
 -- Command-line completion
 -- vim.opt.wildmenu = true
 -- vim.opt.wildmode = "longest:full,full"
-
