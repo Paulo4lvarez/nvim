@@ -43,8 +43,8 @@ vim.opt.termguicolors = true
 vim.opt.showmode = false
 
 -- Scrolling and performance
-vim.opt.scrolloff = 12
-vim.opt.sidescrolloff = 42
+vim.opt.scrolloff = 20
+vim.opt.sidescrolloff = 45
 vim.opt.smoothscroll = true
 
 -- Command-line completion
