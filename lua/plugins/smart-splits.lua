@@ -8,10 +8,10 @@ return {
 
     -- resizing splits
     -- these keymaps will also accept a range,
-    vim.keymap.set('n', '<leader><C-h>', require('smart-splits').resize_left)
-    vim.keymap.set('n', '<leader><C-j>', require('smart-splits').resize_down)
-    vim.keymap.set('n', '<leader><C-k>', require('smart-splits').resize_up)
-    vim.keymap.set('n', '<leader><C-l>', require('smart-splits').resize_right)
+    vim.keymap.set('n', '<M-C-h>', require('smart-splits').resize_left)
+    vim.keymap.set('n', '<M-C-j>', require('smart-splits').resize_down)
+    vim.keymap.set('n', '<M-C-k>', require('smart-splits').resize_up)
+    vim.keymap.set('n', '<M-C-l>', require('smart-splits').resize_right)
     -- moving between splits
     vim.keymap.set('n', '<C-h>', require('smart-splits').move_cursor_left)
     vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_down)
