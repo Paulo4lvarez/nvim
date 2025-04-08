@@ -44,7 +44,7 @@ vim.opt.showmode = false
 
 -- Scrolling and performance
 vim.opt.scrolloff = 20
-vim.opt.sidescrolloff = 45
+vim.opt.sidescrolloff = 40
 vim.opt.smoothscroll = true
 
 -- Command-line completion
