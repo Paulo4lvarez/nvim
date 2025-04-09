@@ -5,7 +5,8 @@ return {
   {
     "williamboman/mason.nvim",
     config = function()
-      local capabilites = require("cmp_nvim_lsp").default_capabilities()
+      -- local capabilites = require("cmp_nvim_lsp").default_capabilities()
+      local capabilites = require("blink.cmp").get_lsp_capabilities()
 
       require("mason").setup()
       require("mason-lspconfig").setup({

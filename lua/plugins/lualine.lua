@@ -4,6 +4,8 @@ return {
   config = function()
     require("lualine").setup({
       theme = "tokyonight",
+      component_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
     })
   end,
 }
