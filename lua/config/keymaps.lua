@@ -6,6 +6,10 @@ local hardmode = true
 map("n", "<C-A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
 map("n", "<C-A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
 
+-- # Change Split Commands
+map("n", "<leader><leader>-", ":split<cr>", { noremap = true, silent = true })
+map("n", "<leader><leader>=", ":vsplit<cr>", { noremap = true, silent = true })
+
 map({ "i", "n", "s" }, "<esc>", function()
   vim.cmd("noh")
   return "<esc>"
