@@ -24,7 +24,7 @@ return {
       ['<Tab>'] = { 'select_prev', 'fallback' },
       ['<S-Tab>'] = { 'select_next', 'fallback' },
       ['<Esc>'] = { 'hide', 'fallback' },
-      [' '] = { 'select_and_accept', 'fallback' },
+      ['<space>'] = { 'select_and_accept', 'fallback' },
 
       -- disable a keymap from the preset
       ['<C-e>'] = {},
