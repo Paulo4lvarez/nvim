@@ -1,15 +1,12 @@
 return {
   'saghen/blink.cmp',
 
+  dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+
   version = '1.*',
 
   opts = {
 
-    -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
-    -- 'super-tab' for mappings similar to vscode (tab to accept)
-    -- 'enter' for enter to accept
-    -- 'none' for no mappings
-    --
     -- All presets have the following mappings:
     -- C-space: Open menu or open docs if already open
     -- C-n/C-p or Up/Down: Select next/previous item
@@ -19,18 +16,9 @@ return {
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = {
       -- set to 'none' to disable the 'default' preset
-      preset = 'default',
-
-      ['<Tab>'] = { 'select_next', 'fallback' },
-      ['<S-Tab>'] = { 'select_prev', 'fallback' },
-      ['<Esc>'] = { 'hide', 'fallback' },
-      ['<CR>'] = { 'select_and_accept', 'fallback' },
-
-      -- disable a keymap from the preset
-      ['<C-e>'] = {},
-
-      -- show with a list of providers
-      ['<C-space>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
+      preset = 'super-tab',
+      ['<M-Tab>'] = { 'select_prev', 'fallback' },
+      ['<S-M-Tab>'] = { 'select_next', 'fallback' },
     },
 
     appearance = {
@@ -38,12 +26,29 @@ return {
     },
 
     -- (Default) Only show the documentation popup when manually triggered
-    completion = { documentation = { auto_show = false } },
+    completion = {
+      menu = { border = 'single' },
+      documentation = {
+        window = { border = 'single' },
+        auto_show = true
+      },
+    },
+    signature = { window = { border = 'single' } },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
+    snippets = { preset = 'luasnip' },
+
     sources = {
-      default = { 'lsp', 'path', 'buffer' },
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      providers = {
+        cmdline = {
+          -- ignores cmdline completions when executing shell commands
+          enabled = function()
+            return vim.fn.getcmdtype() ~= ':' or not vim.fn.getcmdline():match("^[%%0-9,'<>%-]*!")
+          end
+        }
+      }
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
