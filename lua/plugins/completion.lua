@@ -21,10 +21,10 @@ return {
       -- set to 'none' to disable the 'default' preset
       preset = 'default',
 
-      ['<Tab>'] = { 'select_prev', 'fallback' },
-      ['<S-Tab>'] = { 'select_next', 'fallback' },
+      ['<Tab>'] = { 'select_next', 'fallback' },
+      ['<S-Tab>'] = { 'select_prev', 'fallback' },
       ['<Esc>'] = { 'hide', 'fallback' },
-      ['<space>'] = { 'select_and_accept', 'fallback' },
+      ['<CR>'] = { 'select_and_accept', 'fallback' },
 
       -- disable a keymap from the preset
       ['<C-e>'] = {},
