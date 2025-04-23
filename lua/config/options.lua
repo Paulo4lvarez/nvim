@@ -3,6 +3,23 @@ vim.opt.number = true
 vim.opt.ruler = false
 vim.opt.relativenumber = true
 
+-- Inline diagnostics
+local signs = { Error = "", Info = "", Hint = "", Warn = "" }
+
+vim.diagnostic.config({
+	virtual_text = {
+		source = "always",
+		prefix = function(diagnostic)
+			return signs[vim.diagnostic.severity[diagnostic.severity]]
+		end,
+	},
+})
+
+for name, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. name
+	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
+end
+
 -- Mouse support
 vim.opt.mouse = ""
 
@@ -49,4 +66,3 @@ vim.opt.smoothscroll = true
 
 -- Command-line completion
 vim.opt.wildmode = "longest:full,full"
-
