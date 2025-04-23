@@ -15,11 +15,6 @@ vim.diagnostic.config({
 	},
 })
 
-for name, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. name
-	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
-end
-
 -- Mouse support
 vim.opt.mouse = ""
 
