@@ -4,7 +4,7 @@ vim.opt.ruler = false
 vim.opt.relativenumber = true
 
 -- Inline diagnostics
-local signs = { Error = "", Info = "", Hint = "", Warn = "" }
+local signs = { ERROR = "", WARN = "", HINT = "", INFO = "" }
 
 vim.diagnostic.config({
 	virtual_text = {

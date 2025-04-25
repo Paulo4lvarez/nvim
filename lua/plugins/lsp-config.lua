@@ -14,7 +14,6 @@ return {
 					-- Config
 					"lua_ls",
 					-- Web
-					"eslint",
 					"ts_ls",
 					"vuels",
 					"cssls",
