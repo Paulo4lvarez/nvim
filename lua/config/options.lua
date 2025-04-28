@@ -7,6 +7,14 @@ vim.opt.relativenumber = true
 local signs = { ERROR = "", WARN = "", HINT = "", INFO = "" }
 
 vim.diagnostic.config({
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = signs.ERROR,
+			[vim.diagnostic.severity.WARN] = signs.WARN,
+			[vim.diagnostic.severity.HINT] = signs.HINT,
+			[vim.diagnostic.severity.INFO] = signs.INFO,
+		},
+	},
 	virtual_text = {
 		source = "always",
 		prefix = function(diagnostic)
