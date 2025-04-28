@@ -14,6 +14,29 @@ end
 
 return {
 	{
+		"echasnovski/mini.icons",
+		version = false,
+		lazy = true,
+		specs = {
+			{ "nvim-tree/nvim-web-dev-icons", enabled = false, optional = true },
+		},
+		init = function()
+			package.preload["nvim-web-devicons"] = function()
+				require("mini.icons").setup()
+				require("mini.icons").mock_nvim_web_devicons()
+				return package.loaded["nvim-web-devicons"]
+			end
+		end,
+	},
+	{
+		"echasnovski/mini.pairs",
+		version = false,
+	},
+	{
+		"echasnovski/mini.surround",
+		version = false,
+	},
+	{
 		"echasnovski/mini.files",
 		version = false,
 		keys = {
@@ -32,11 +55,12 @@ return {
 		},
 		dependencies = {
 			"echasnovski/mini.icons",
-			"nvim-tree/nvim-web-devicons",
 			{ "antosha417/nvim-lsp-file-operations", dependencies = { "nvim-lua/plenary.nvim" } },
 		},
 		lazy = false,
 		config = function()
+			require("mini.pairs").setup()
+			require("mini.surround").setup()
 			require("mini.files").setup({
 				options = { use_as_default_explorer = true },
 			})
