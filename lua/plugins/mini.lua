@@ -63,6 +63,7 @@ return {
 			require("mini.surround").setup()
 			require("mini.files").setup({
 				options = { use_as_default_explorer = true },
+				windows = { preview = true, width_focus = 45, width_nofocus = 10, width_preview = 50 },
 			})
 
 			require("lsp-file-operations").setup()

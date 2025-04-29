@@ -26,7 +26,7 @@ return {
 					mappings = {
 						i = {
 							["<M-q>"] = actions.close,
-							["<C-p>"] = require("telescope.actions.layout").toggle_preview,
+							["<M-p>"] = require("telescope.actions.layout").toggle_preview,
 						},
 					},
 				},
@@ -37,7 +37,7 @@ return {
 					buffers = {
 						mappings = {
 							i = {
-								["<C-d>"] = actions.delete_buffer + actions.move_to_top,
+								["<M-d>"] = actions.delete_buffer + actions.move_to_top,
 							},
 						},
 					},
