@@ -1,13 +1,10 @@
 return {
-	{ "williamboman/mason.nvim", opts = {} },
-	{ "williamboman/mason-lspconfig.nvim" },
+	{ "mason-org/mason.nvim", opts = {} },
+	{ "mason-org/mason-lspconfig.nvim" },
 	{ "neovim/nvim-lspconfig" },
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		config = function()
-			-- local capabilites = require("cmp_nvim_lsp").default_capabilities()
-			local capabilites = require("blink.cmp").get_lsp_capabilities()
-
 			require("mason").setup()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
@@ -18,6 +15,7 @@ return {
 					"vuels",
 					"cssls",
 					"tailwindcss",
+					"eslint",
 					"html",
 					"jsonls",
 					-- Java
@@ -26,12 +24,9 @@ return {
 					-- C Family
 					"clangd",
 					"cmake",
+					-- Rust
+					"rust_analyzer",
 				},
-			})
-			require("mason-lspconfig").setup_handlers({
-				function(server_name)
-					require("lspconfig")[server_name].setup({ capabilites = capabilites })
-				end,
 			})
 
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
