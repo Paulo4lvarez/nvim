@@ -1,6 +1,6 @@
 -- This config doesn't mainly use mini, but those plugins from mini I *do* use will be here.
 
-local minifiles_toggle = function(...)
+Minifiles_toggle = function(...)
 	local minifiles = require("mini.files")
 	local arg_len = ... == nil and 0 or #...
 	if not minifiles.close() then
@@ -62,20 +62,6 @@ return {
 	{
 		"echasnovski/mini.files",
 		version = false,
-		keys = {
-			{
-				"<leader>o",
-				minifiles_toggle,
-				desc = "Toggle file explorer",
-			},
-			{
-				"<leader>O",
-				function()
-					minifiles_toggle(vim.api.nvim_buf_get_name(0), false)
-				end,
-				desc = "Toggle file explorer(current file)",
-			},
-		},
 		dependencies = {
 			"echasnovski/mini.icons",
 		},
@@ -85,7 +71,7 @@ return {
 			require("mini.pairs").setup()
 			require("mini.surround").setup()
 			require("mini.files").setup({
-				options = { use_as_default_explorer = true },
+				options = { use_as_default_explorer = false },
 				windows = { preview = true, width_focus = 40, width_nofocus = 10, width_preview = 50 },
 			})
 
