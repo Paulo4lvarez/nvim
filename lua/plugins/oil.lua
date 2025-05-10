@@ -19,12 +19,11 @@ return {
 			keymaps = {
 				["g?"] = { "actions.show_help", mode = "n" },
 				["<CR>"] = "actions.select",
-				["<C-s>"] = { "actions.select", opts = { vertical = true } },
-				["<C-h>"] = { "actions.select", opts = { horizontal = true } },
-				["<C-t>"] = false,
+				["<M-s>"] = { "actions.select", opts = { vertical = true } },
+				["<S-M-s>"] = { "actions.select", opts = { horizontal = true } },
 				["<C-p>"] = "actions.preview",
 				["<C-c>"] = { "actions.close", mode = "n" },
-				["<C-l>"] = "actions.refresh",
+				["<S-C-l>"] = "actions.refresh",
 				["-"] = { "actions.parent", mode = "n" },
 				["_"] = { "actions.open_cwd", mode = "n" },
 				["`"] = { "actions.cd", mode = "n" },
@@ -45,6 +44,7 @@ return {
 					end,
 				},
 			},
+			use_default_keymaps = false,
 			sort = {
 				-- sort order can be "asc" or "desc"
 				-- see :help oil-columns to see which columns are sortable
