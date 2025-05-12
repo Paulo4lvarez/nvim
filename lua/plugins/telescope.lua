@@ -20,7 +20,7 @@ return {
 
       require("telescope").setup({
         defaults = {
-          layout_strategy = "center",
+          layout_strategy = "horizontal",
           sorting_strategy = "ascending",
           mappings = {
             i = {
@@ -30,9 +30,6 @@ return {
           },
         },
         pickers = {
-          find_files = {
-            theme = "dropdown",
-          },
           buffers = {
             mappings = {
               i = {

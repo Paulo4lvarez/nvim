@@ -20,38 +20,14 @@ return {
       cmdline = { completion = { menu = { auto_show = true } } },
       keymap = {
         preset = "super-tab",
-        ["<M-Tab>"] = { "select_prev", "fallback" },
-        ["<S-M-Tab>"] = { "select_next", "fallback" },
       },
       completion = {
         menu = {
           scrollbar = false,
           auto_show = is_enabled,
-          border = {
-            { "󱐋", "WarningMsg" },
-            "─",
-            "╮",
-            "│",
-            "╯",
-            "─",
-            "╰",
-            "│",
-          },
         },
         documentation = {
           auto_show = true,
-          window = {
-            border = {
-              { "", "DiagnosticHint" },
-              "─",
-              "╮",
-              "│",
-              "╯",
-              "─",
-              "╰",
-              "│",
-            },
-          },
         },
       },
       snippets = { preset = "luasnip" },
