@@ -74,10 +74,27 @@ return {
       table.insert(config.sections.lualine_c, component)
     end
 
+    -- Inserts an inactive component in lualine_c at left section
+    local function ins_left_inactive(component)
+      table.insert(config.inactive_sections.lualine_c, component)
+    end
+
     -- Inserts a component in lualine_x at right section
     local function ins_right(component)
       table.insert(config.sections.lualine_x, component)
     end
+
+    ins_left_inactive {
+      function()
+        return '%='
+      end,
+    }
+
+    ins_left_inactive {
+      'filename',
+      cond = conditions.buffer_not_empty,
+      color = { fg = colors.violet, gui = 'bold' },
+    }
 
     ins_left {
       function()
