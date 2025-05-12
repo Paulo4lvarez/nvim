@@ -1,14 +1,20 @@
+local autocmd = vim.api.nvim_create_autocmd
+local utils = require("config.utils")
+
+local general = vim.api.nvim_create_augroup("General Settings", { clear = true })
+
 local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
-vim.api.nvim_create_autocmd("TextYankPost", {
+
+autocmd("TextYankPost", {
   group = augroup("highlight_yank"),
   callback = function()
     (vim.hl or vim.highlight).on_yank()
   end,
 })
 
-vim.api.nvim_create_autocmd("BufReadPost", {
+autocmd("BufReadPost", {
   group = augroup("last_loc"),
   callback = function(event)
     local exclude = { "gitcommit" }
@@ -25,3 +31,27 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
+autocmd("BufWinEnter", {
+  callback = function(data)
+    utils.open_help(data.buf)
+  end,
+  group = general,
+  desc = "Redirect help to floating window",
+})
+
+autocmd("FileType", {
+  group = general,
+  pattern = {
+    "grug-far",
+    "help",
+    "checkhealth",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", {
+      buffer = event.buf,
+      silent = true,
+      desc = "Quit buffer",
+    })
+  end,
+})
