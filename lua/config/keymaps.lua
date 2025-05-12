@@ -2,9 +2,8 @@ local map = vim.keymap.set
 
 -- HARD MODE
 local hardmode = true
--- FILE EXPLORER
--- "mini" or "oil"
-local fileExplorer = "oil"
+
+map("n", "<leader>o", "<CMD>Oil<CR>", { noremap = true, silent = true })
 
 map("n", "<C-A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
 map("n", "<C-A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
@@ -42,13 +41,3 @@ if hardmode then
   map("n", "<Del>", msg, { noremap = true, silent = true })
   map("n", "<BS>", msg, { noremap = true, silent = true })
 end
-
-local toggleExplorer = function(fileExplorer)
-  if fileExplorer == "mini" then
-    return Minifiles_toggle
-  elseif fileExplorer == "oil" then
-    return "<CMD>Oil<CR>"
-  end
-end
-
-map("n", "<leader>o", toggleExplorer(fileExplorer), { noremap = true, silent = true })
