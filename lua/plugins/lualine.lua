@@ -140,7 +140,7 @@ return {
     ins_left {
       'diagnostics',
       sources = { 'nvim_diagnostic' },
-      symbols = { error = ' ', warn = ' ', info = ' ' },
+      symbols = { error = ' ', warn = ' ', info = ' ' },
       diagnostics_color = {
         error = { fg = colors.red },
         warn = { fg = colors.yellow },
@@ -174,7 +174,7 @@ return {
         return msg
       end,
       icon = ' LSP:',
-      color = { fg = '#ffffff', gui = 'bold' },
+      color = { fg = "#797b8a", gui = 'bold' },
     }
 
     -- Add components to right sections
@@ -182,14 +182,14 @@ return {
       'o:encoding',       -- option component same as &encoding in viml
       fmt = string.upper, -- I'm not sure why it's upper case either ;)
       cond = conditions.hide_in_width,
-      color = { fg = colors.green, gui = 'bold' },
+      color = { fg = colors.cyan, gui = 'bold' },
     }
 
     ins_right {
       'fileformat',
       fmt = string.upper,
       icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-      color = { fg = colors.green, gui = 'bold' },
+      color = { fg = colors.cyan, gui = 'bold' },
     }
 
     ins_right {
