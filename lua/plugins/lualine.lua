@@ -118,7 +118,7 @@ return {
           Ubuntu = "󰕈",
           Linux = "󰌽",
           FreeBSD = " ",
-          Darwin = "",
+          OSX = "",
           Windows = ""
         }
         local sysname = jit.os
@@ -126,7 +126,7 @@ return {
           local distro = vim.fn.system('lsb_release -si'):gsub('\n', '')
           _G.os_icon = os_icons[distro] or "󰌽" -- Fallback Linux icon
         else
-          _G.os_icon = os_icons[sysname] or "󰌽"
+          _G.os_icon = os_icons[sysname] or ""
         end
         return _G.os_icon
       end,
