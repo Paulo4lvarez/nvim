@@ -107,7 +107,28 @@ return {
     ins_left {
       -- mode component
       function()
-        return ''
+        if _G.os_icon then return _G.os_icon end
+        local os_icons = {
+          EndeavourOS = " ",
+          Arch = " ",
+          Fedora = " ",
+          Redhat = "󱄛",
+          RedHatEnterprise = "󱄛",
+          Debian = "",
+          Ubuntu = "󰕈",
+          Linux = "󰌽",
+          FreeBSD = " ",
+          Darwin = "",
+          Windows = ""
+        }
+        local sysname = jit.os
+        if sysname == "Linux" then
+          local distro = vim.fn.system('lsb_release -si'):gsub('\n', '')
+          _G.os_icon = os_icons[distro] or "󰌽" -- Fallback Linux icon
+        else
+          _G.os_icon = os_icons[sysname] or "󰌽"
+        end
+        return _G.os_icon
       end,
       color = function()
         -- auto change color according to neovims mode

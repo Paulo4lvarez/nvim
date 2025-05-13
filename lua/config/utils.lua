@@ -64,7 +64,7 @@ function M.open_help(buf)
       relative = "editor",
       row = 0,
       col = vim.o.columns - 80,
-      width = 80,
+      width = 90,
       height = vim.o.lines - 3,
       border = "rounded",
     })
