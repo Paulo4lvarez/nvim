@@ -2,32 +2,39 @@
 vim.opt.number = true
 vim.opt.ruler = false
 vim.opt.relativenumber = true
+vim.o.confirm = true
 
 -- Inline diagnostics
-local signs = { ERROR = " ", WARN = " ", HINT = " ", INFO = " " }
+local signs = { ERROR = " ", WARN = " ", HINT = "", INFO = " " }
 
 vim.diagnostic.config({
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = signs.ERROR,
-			[vim.diagnostic.severity.WARN] = signs.WARN,
-			[vim.diagnostic.severity.HINT] = signs.HINT,
-			[vim.diagnostic.severity.INFO] = signs.INFO,
-		},
-	},
-	virtual_text = {
-		source = "always",
-		prefix = function(diagnostic)
-			return signs[vim.diagnostic.severity[diagnostic.severity]]
-		end,
-	},
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = signs.ERROR,
+      [vim.diagnostic.severity.WARN] = signs.WARN,
+      [vim.diagnostic.severity.HINT] = signs.HINT,
+      [vim.diagnostic.severity.INFO] = signs.INFO,
+    },
+  },
+  virtual_text = {
+    source = "always",
+    prefix = function(diagnostic)
+      return signs[vim.diagnostic.severity[diagnostic.severity]]
+    end,
+  },
+  virtual_lines = { current_line = true },
+  float = { border = "rounded" },
+  underline = true,
+  update_in_insert = false
 })
 
 -- Mouse support
-vim.opt.mouse = ""
+vim.opt.mouse = "a"
 
 -- Clipboard
-vim.opt.clipboard = "unnamedplus"
+vim.schedule(function()
+  vim.opt.clipboard = "unnamedplus"
+end)
 
 -- Indentation
 vim.opt.wrap = false
@@ -39,6 +46,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.linebreak = true
 vim.opt.smartcase = true
+vim.opt.breakindent = true
 vim.opt.signcolumn = "yes"
 
 -- Search
@@ -46,6 +54,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
+vim.o.inccommand = 'split'
 
 -- Encoding
 vim.opt.encoding = "utf-8"
@@ -65,6 +74,7 @@ vim.opt.showmode = false
 -- Scrolling and performance
 vim.opt.scrolloff = 20
 vim.opt.sidescrolloff = 40
+vim.opt.updatetime = 250
 vim.opt.smoothscroll = true
 
 -- Command-line completion

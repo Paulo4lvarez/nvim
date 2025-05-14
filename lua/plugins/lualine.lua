@@ -74,27 +74,10 @@ return {
       table.insert(config.sections.lualine_c, component)
     end
 
-    -- Inserts an inactive component in lualine_c at left section
-    local function ins_left_inactive(component)
-      table.insert(config.inactive_sections.lualine_c, component)
-    end
-
     -- Inserts a component in lualine_x at right section
     local function ins_right(component)
       table.insert(config.sections.lualine_x, component)
     end
-
-    ins_left_inactive {
-      function()
-        return '%='
-      end,
-    }
-
-    ins_left_inactive {
-      'filename',
-      cond = conditions.buffer_not_empty,
-      color = { fg = colors.violet, gui = 'bold' },
-    }
 
     ins_left {
       function()
@@ -126,7 +109,7 @@ return {
           local distro = vim.fn.system('lsb_release -si'):gsub('\n', '')
           _G.os_icon = os_icons[distro] or "󰌽" -- Fallback Linux icon
         else
-          _G.os_icon = os_icons[sysname] or ""
+          _G.os_icon = os_icons[sysname] or "" -- Fallback icon if this fails completely
         end
         return _G.os_icon
       end,
@@ -178,7 +161,7 @@ return {
     ins_left {
       'diagnostics',
       sources = { 'nvim_diagnostic' },
-      symbols = { error = ' ', warn = ' ', info = ' ' },
+      symbols = { error = ' ', warn = ' ', info = ' ' },
       diagnostics_color = {
         error = { fg = colors.red },
         warn = { fg = colors.yellow },
@@ -197,7 +180,7 @@ return {
     ins_left {
       -- Lsp server name .
       function()
-        local msg = 'No Active Lsp'
+        local msg = 'Inactive'
         local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
         local clients = vim.lsp.get_clients()
         if next(clients) == nil then
@@ -211,8 +194,12 @@ return {
         end
         return msg
       end,
-      icon = ' LSP:',
+      icon = ' ',
       color = { fg = "#797b8a", gui = 'bold' },
+    }
+
+    ins_left {
+
     }
 
     -- Add components to right sections
@@ -242,7 +229,7 @@ return {
       symbols = { added = ' ', modified = ' ', removed = ' ' },
       diff_color = {
         added = { fg = colors.green },
-        modified = { fg = colors.orange },
+        modified = { fg = colors.yellow },
         removed = { fg = colors.red },
       },
       cond = conditions.hide_in_width,

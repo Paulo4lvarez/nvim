@@ -6,16 +6,7 @@ return {
   {
     "rebelot/kanagawa.nvim",
     lazy = false,
-  },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-
     config = function()
-      require("tokyonight").setup({
-        style = "night",
-        transparent = true,
-      })
       require("kanagawa").setup({
         dimInactive = true,
         transparent = true,
@@ -60,10 +51,6 @@ return {
           "kanagawa-wave",
           "kanagawa-dragon",
           "kanagawa-lotus",
-          "tokyonight-moon",
-          "tokyonight-storm",
-          "tokyonight-day",
-          "tokyonight-night"
         },
         livePreview = true
       })

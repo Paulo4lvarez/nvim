@@ -1,18 +1,25 @@
 return {
-	"mfussenegger/nvim-lint",
-	config = function()
-		require("lint").linters_by_ft = {
-			markdown = { "vale" },
-			-- javascript = { "eslint_d" },
-			-- javascriptreact = { "eslint_d" },
-		}
+  "mfussenegger/nvim-lint",
+  config = function()
+    local lint = require('lint')
 
-		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
-			callback = function()
-				-- try_lint without arguments runs the linters defined in `linters_by_ft`
-				-- for the current filetype
-				require("lint").try_lint()
-			end,
-		})
-	end,
+    lint.linters_by_ft = {
+      markdown = { "vale" },
+      -- javascript = { "eslint_d" },
+      -- javascriptreact = { "eslint_d" },
+    }
+
+    local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
+    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
+      group = lint_augroup,
+      callback = function()
+        -- Only run the linter in buffers that you can modify in order to
+        -- avoid superfluous noise, notably within the handy LSP pop-ups that
+        -- describe the hovered symbol using Markdown.
+        if vim.bo.modifiable then
+          lint.try_lint()
+        end
+      end,
+    })
+  end,
 }

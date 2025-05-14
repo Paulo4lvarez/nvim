@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Leader Key
 vim.g.mapleader = " "
+vim.g.localleader = " "
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -33,5 +34,8 @@ require("lazy").setup({
     title = " lazy.nvim 💤",
     border = "rounded",
     pills = false,
+    icons = vim.g.have_nerd_font and {} or {
+      cmd = '⌘',
+    },
   }
 })

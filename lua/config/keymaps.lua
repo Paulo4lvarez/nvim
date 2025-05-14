@@ -15,13 +15,10 @@ map("n", "<leader><leader>x", "<C-w>c", { noremap = true, silent = true })
 map("n", "<leader><leader>o", "<C-w>o", { noremap = true, silent = true })
 
 -- Make escaping terminal easier
-map("t", "<C-n>", "<C-\\><C-n>", { silent = true })
+map("t", "<Esc><Esc>", "<C-\\><C-n>", { silent = true, desc = "Exit terminal mode" })
 
 -- Escape and Clear HLsearch
-map({ "i", "n", "s" }, "<esc>", function()
-  vim.cmd("noh")
-  return "<esc>"
-end, { expr = true, desc = "Escape and Clear hlsearch" })
+map({ "n", "s" }, "<Esc>", "<CMD>nohlsearch<CR>", { desc = "Escape and Clear hlsearch" })
 
 if hardmode then
   -- Show an error message if a disabled key is pressed
