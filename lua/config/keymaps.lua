@@ -9,10 +9,14 @@ map("n", "<C-A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Do
 map("n", "<C-A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
 
 -- Change Split Commands
-map("n", "<leader><leader>-", ":split<cr>", { noremap = true, silent = true })
-map("n", "<leader><leader>=", ":vsplit<cr>", { noremap = true, silent = true })
-map("n", "<leader><leader>x", "<C-w>c", { noremap = true, silent = true })
-map("n", "<leader><leader>o", "<C-w>o", { noremap = true, silent = true })
+map("n", "<leader><leader>-", ":split<cr>", { noremap = true, silent = true, desc = "Horizontal Split" })
+map("n", "<leader><leader>=", ":vsplit<cr>", { noremap = true, silent = true, desc = "Vertical Split" })
+map("n", "<leader><leader>x", "<C-w>c", { noremap = true, silent = true, desc = "Close Split" })
+map("n", "<leader><leader>o", "<C-w>o", { noremap = true, silent = true, desc = "Close Other Splits" })
+map("n", "<leader><leader>k", "<C-w><S-k>", { noremap = true, silent = true, desc = "Change Orientaation Up" })
+map("n", "<leader><leader>j", "<C-w><S-j>", { noremap = true, silent = true, desc = "Change Orientaation Down" })
+map("n", "<leader><leader>h", "<C-w><S-h>", { noremap = true, silent = true, desc = "Change Orientaation Left" })
+map("n", "<leader><leader>l", "<C-w><S-l>", { noremap = true, silent = true, desc = "Change Orientaation Right" })
 
 -- Make escaping terminal easier
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { silent = true, desc = "Exit terminal mode" })
