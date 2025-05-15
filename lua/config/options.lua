@@ -8,7 +8,7 @@ vim.o.confirm = true
 vim.opt.laststatus = 3
 
 -- Inline diagnostics
-local signs = { ERROR = " ", WARN = " ", HINT = "", INFO = " " }
+local signs = { ERROR = " ", WARN = " ", HINT = " ", INFO = " " }
 
 vim.diagnostic.config({
   signs = {
