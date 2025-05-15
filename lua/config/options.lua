@@ -4,6 +4,9 @@ vim.opt.ruler = false
 vim.opt.relativenumber = true
 vim.o.confirm = true
 
+-- Global status line
+vim.opt.laststatus = 3
+
 -- Inline diagnostics
 local signs = { ERROR = " ", WARN = " ", HINT = "", INFO = " " }
 
