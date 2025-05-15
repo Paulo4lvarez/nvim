@@ -17,10 +17,12 @@ return {
   {
     "echasnovski/mini.pairs",
     version = false,
+    event = { "BufEnter" }
   },
   {
     "echasnovski/mini.surround",
     version = false,
+    event = { "BufEnter" },
     config = function()
       -- Load plugins and mini.files with some config
       require("mini.pairs").setup()
