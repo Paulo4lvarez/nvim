@@ -199,8 +199,14 @@ return {
       color = { fg = "#797b8a", gui = 'bold' },
     }
 
-    ins_left {
-
+    ins_right {
+      function()
+        local reg = vim.fn.reg_recording()
+        if reg == "" then return "" end -- not recording
+        return reg
+      end,
+      icon = '',
+      color = { fg = colors.red }
     }
 
     -- Add components to right sections
