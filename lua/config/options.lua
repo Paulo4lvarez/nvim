@@ -32,7 +32,7 @@ vim.diagnostic.config({
 })
 
 -- Mouse support
-vim.opt.mouse = "a"
+vim.opt.mouse = ""
 
 -- Clipboard
 vim.schedule(function()

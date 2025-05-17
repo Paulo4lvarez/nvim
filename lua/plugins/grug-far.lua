@@ -5,6 +5,6 @@ return {
       windowCreationCommand = "botright vsplit %",
     })
 
-    vim.keymap.set("n", "<leader>fg", "<CMD>GrugFar<CR>", { desc = "Grug Far Find and Replace" })
+    vim.keymap.set("n", "<leader>g", "<CMD>GrugFar<CR>", { desc = "Grug Far Find and Replace" })
   end,
 }
