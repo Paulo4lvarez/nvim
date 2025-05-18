@@ -9,6 +9,11 @@ return {
       "sindrets/diffview.nvim", -- optional - Diff integration
       "nvim-telescope/telescope.nvim",
     },
+    config = function()
+      require("neogit").setup({
+        graph_style = "unicode"
+      })
+    end
   },
   {
     "lewis6991/gitsigns.nvim",

@@ -17,7 +17,10 @@ return {
 
     require("blink.cmp").setup({
       enabled = is_enabled,
-      cmdline = { completion = { menu = { auto_show = true } } },
+      cmdline = {
+        keymap = { preset = 'inherit' },
+        completion = { menu = { auto_show = true } }
+      },
       keymap = {
         preset = "super-tab",
       },

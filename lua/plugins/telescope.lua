@@ -20,7 +20,7 @@ return {
 
       require("telescope").setup({
         defaults = {
-          layout_strategy = "horizontal",
+          layout_strategy = "flex",
           sorting_strategy = "ascending",
           mappings = {
             i = {
