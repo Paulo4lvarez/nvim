@@ -3,20 +3,25 @@ local map = vim.keymap.set
 -- HARD MODE
 local hardmode = true
 
-map("n", "<leader>o", "<CMD>Oil<CR>", { noremap = true, silent = true })
+-- Plugin Keymaps
+map("n", "<leader>o", "<CMD>Oil<CR>", { desc = "Oil file browser" })
+map("n", "<leader>g", "<CMD>Neogit<CR>", { desc = "Neogit" })
+map("n", "<leader>/", "<CMD>GrugFar<CR>", { desc = "Grug Find And Replace" })
 
+-- QoL keymaps
+map("n", "gd", vim.lsp.buf.definition, {})
 map("n", "<C-A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
 map("n", "<C-A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
 
 -- Change Split Commands
-map("n", "<leader><leader>-", ":split<cr>", { noremap = true, silent = true, desc = "Horizontal Split" })
-map("n", "<leader><leader>=", ":vsplit<cr>", { noremap = true, silent = true, desc = "Vertical Split" })
-map("n", "<leader><leader>x", "<C-w>c", { noremap = true, silent = true, desc = "Close Split" })
-map("n", "<leader><leader>o", "<C-w>o", { noremap = true, silent = true, desc = "Close Other Splits" })
-map("n", "<leader><leader>k", "<C-w><S-k>", { noremap = true, silent = true, desc = "Change Orientaation Up" })
-map("n", "<leader><leader>j", "<C-w><S-j>", { noremap = true, silent = true, desc = "Change Orientaation Down" })
-map("n", "<leader><leader>h", "<C-w><S-h>", { noremap = true, silent = true, desc = "Change Orientaation Left" })
-map("n", "<leader><leader>l", "<C-w><S-l>", { noremap = true, silent = true, desc = "Change Orientaation Right" })
+map("n", "<leader><leader>-", ":split<cr>", { noremap = true, silent = true, desc = "Horizontal split" })
+map("n", "<leader><leader>=", ":vsplit<cr>", { noremap = true, silent = true, desc = "Vertical split" })
+map("n", "<leader><leader>x", "<C-w>c", { noremap = true, silent = true, desc = "Close split" })
+map("n", "<leader><leader>o", "<C-w>o", { noremap = true, silent = true, desc = "Close other splits" })
+map("n", "<leader><leader>k", "<C-w><S-k>", { noremap = true, silent = true, desc = "Change orientation Up" })
+map("n", "<leader><leader>j", "<C-w><S-j>", { noremap = true, silent = true, desc = "Change orientation Down" })
+map("n", "<leader><leader>h", "<C-w><S-h>", { noremap = true, silent = true, desc = "Change orientation Left" })
+map("n", "<leader><leader>l", "<C-w><S-l>", { noremap = true, silent = true, desc = "Change orientation Right" })
 
 -- Make escaping terminal easier
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { silent = true, desc = "Exit terminal mode" })
