@@ -18,10 +18,5 @@ return {
     vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_up, { desc = "Move to up pane" })
     vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right, { desc = "Move to right pane" })
     vim.keymap.set('n', '<C-\\>', require('smart-splits').move_cursor_previous, { desc = "Move to previous pane" })
-    -- swapping buffers between windows
-    vim.keymap.set('n', '<S-M>h', require('smart-splits').swap_buf_left, { desc = "Swap left" })
-    vim.keymap.set('n', '<S-M>j', require('smart-splits').swap_buf_down, { desc = "Swap left" })
-    vim.keymap.set('n', '<S-M>k', require('smart-splits').swap_buf_up, { desc = "Swap left" })
-    vim.keymap.set('n', '<S-M>l', require('smart-splits').swap_buf_right, { desc = "Swap left" })
   end
 }
