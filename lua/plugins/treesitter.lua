@@ -12,7 +12,6 @@ return {
         "cmake",
         "bash",
         "lua",
-        "java",
         "kotlin",
         "vim",
         "vimdoc",
