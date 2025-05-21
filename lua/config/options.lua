@@ -2,10 +2,11 @@
 vim.opt.number = true
 vim.opt.ruler = false
 vim.opt.relativenumber = true
+vim.opt.winborder = "none"
 vim.o.confirm = true
 
 -- Global status line
-vim.opt.laststatus = 3
+vim.go.laststatus = 3
 
 -- Inline diagnostics
 local signs = { ERROR = " ", WARN = " ", HINT = " ", INFO = " " }

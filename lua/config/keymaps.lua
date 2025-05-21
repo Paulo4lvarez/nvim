@@ -29,6 +29,15 @@ map("t", "<Esc><Esc>", "<C-\\><C-n>", { silent = true, desc = "Exit terminal mod
 -- Escape and Clear HLsearch
 map({ "n", "s" }, "<Esc>", "<CMD>nohlsearch<CR>", { desc = "Escape and Clear hlsearch" })
 
+-- Attempt 420 to add border to hover (telescope will break bc plenary doesn't like the new way of adding borders)
+vim.keymap.set(
+  'n', 'K',
+  function()
+    vim.lsp.buf.hover({ border = "rounded" })
+  end,
+  { desc = 'Hover Documentation' }
+)
+
 if hardmode then
   -- Show an error message if a disabled key is pressed
   local msg = [[<cmd>echohl Error | echo "KEY DISABLED" | echohl None<CR>]]
