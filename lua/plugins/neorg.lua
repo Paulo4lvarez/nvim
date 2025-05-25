@@ -7,6 +7,10 @@ return {
       load = {
         ["core.defaults"] = {},
         ["core.concealer"] = {},
+        -- ["core.completion"] = {},
+        ["core.export"] = {},
+        -- ["core.presenter"] = {},
+        ["core.summary"] = {},
         ["core.dirman"] = {
           config = {
             workspaces = {

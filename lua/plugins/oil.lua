@@ -12,7 +12,7 @@ return {
         signcolumn = "yes:2"
       },
       delete_to_trash = true,
-      skip_confirm_for_simple_edits = true,
+      skip_confirm_for_simple_edits = false,
       lsp_file_methods = {
         enabled = true,
         timeout_ms = 2000,
