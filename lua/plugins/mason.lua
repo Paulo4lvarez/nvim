@@ -19,7 +19,7 @@ return {
           -- Config
           "lua_ls",
           -- Web
-          "ts_ls",
+          "vtsls",
           "vuels",
           "tailwindcss",
           "eslint",
