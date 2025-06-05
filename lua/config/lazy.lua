@@ -24,6 +24,7 @@ require("lazy").setup({
   spec = {
     {
       import = "plugins",
+      -- import = "heirline"
     },
   },
   install = {
