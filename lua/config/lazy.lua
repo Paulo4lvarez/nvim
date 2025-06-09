@@ -22,10 +22,7 @@ vim.g.localleader = " "
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    {
-      import = "plugins",
-      -- import = "heirline"
-    },
+    { import = "plugins" },
   },
   install = {
     missing = true,

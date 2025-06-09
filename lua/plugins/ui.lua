@@ -1,11 +1,8 @@
 return {
   {
-    "zaldih/themery.nvim",
-    lazy = false,
-  },
-  {
     "rebelot/kanagawa.nvim",
     lazy = false,
+    priority = 1000,
     config = function()
       local transparency = true
       require("kanagawa").setup({
@@ -21,14 +18,6 @@ return {
           }
         },
       })
-      require("themery").setup({
-        themes = {
-          "kanagawa-wave",
-          "kanagawa-dragon",
-          "kanagawa-lotus",
-        },
-        livePreview = true
-      })
       vim.cmd [[colorscheme kanagawa-wave]]
       if transparency then
         vim.cmd [[highlight TelescopeBorder guibg=none]]
@@ -36,4 +25,21 @@ return {
       end
     end
   },
+  -- {
+  -- "rebelot/heirline.nvim",
+  -- event = "BufEnter",
+  -- config = function()
+  -- require("heirline")
+  -- end
+  -- },
+  {
+    "brenoprata10/nvim-highlight-colors",
+    config = function()
+      require("nvim-highlight-colors").setup({
+        render = "virtual",
+        virtual_symbol = "",
+        enable_tailwind = true,
+      })
+    end,
+  }
 }
