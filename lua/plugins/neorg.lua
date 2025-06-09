@@ -9,7 +9,6 @@ return {
         ["core.concealer"] = {},
         -- ["core.completion"] = {},
         ["core.export"] = {},
-        -- ["core.presenter"] = {},
         ["core.summary"] = {},
         ["core.dirman"] = {
           config = {
@@ -19,6 +18,13 @@ return {
             default_workspace = "notes",
           },
         },
+        ["core.latex.renderer"] = {
+          config = {
+            conceal = true,
+            render_on_enter = true,
+          }
+        }
+        -- ["core.presenter"] = {},
       }
     })
 
