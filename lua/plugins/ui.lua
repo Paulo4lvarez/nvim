@@ -25,13 +25,13 @@ return {
       end
     end
   },
-  -- {
-  -- "rebelot/heirline.nvim",
-  -- event = "BufEnter",
-  -- config = function()
-  -- require("heirline")
-  -- end
-  -- },
+  {
+    "rebelot/heirline.nvim",
+    event = "BufEnter",
+    config = function()
+      require("heirline-plugin")
+    end
+  },
   {
     "brenoprata10/nvim-highlight-colors",
     config = function()
