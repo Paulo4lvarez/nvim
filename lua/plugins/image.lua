@@ -1,7 +1,7 @@
 return {
   "3rd/image.nvim",
   build = false,
-  enabled = true,
+  enabled = false,
   opts = {
     processor = "magick_cli",
   }

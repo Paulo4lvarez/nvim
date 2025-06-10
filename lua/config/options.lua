@@ -6,7 +6,7 @@ vim.opt.winborder = "none"
 vim.o.confirm = true
 
 -- Global status line
-vim.go.laststatus = 3
+vim.laststatus = 3
 
 -- Inline diagnostics
 local signs = { ERROR = " ", WARN = " ", HINT = " ", INFO = " " }

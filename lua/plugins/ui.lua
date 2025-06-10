@@ -27,10 +27,7 @@ return {
   },
   {
     "rebelot/heirline.nvim",
-    event = "BufEnter",
-    config = function()
-      require("heirline-plugin")
-    end
+    enabled = false,
   },
   {
     "brenoprata10/nvim-highlight-colors",

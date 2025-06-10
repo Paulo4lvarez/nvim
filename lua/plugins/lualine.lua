@@ -1,6 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  enabled = true,
   lazy = false,
   config = function()
     local lualine = require('lualine')
@@ -38,6 +39,7 @@ return {
     -- Config
     local config = {
       options = {
+        globalstatus = true,
         -- Disable sections and component separators
         component_separators = '',
         section_separators = '',
@@ -82,10 +84,10 @@ return {
 
     ins_left {
       function()
-        return '▊'
+        return '▍'
       end,
       color = { fg = colors.blue },      -- Sets highlighting of component
-      padding = { left = 0, right = 1 }, -- We don't need space before this
+      padding = { left = 0, right = 0 }, -- We don't need space before this
     }
 
     ins_left {
@@ -151,6 +153,12 @@ return {
 
     ins_left {
       'filename',
+      symbols = {
+        modified = '',
+        readonly = '',
+        unnamed = '?',
+        newfile = '',
+      },
       cond = conditions.buffer_not_empty,
       color = { fg = colors.magenta, gui = 'bold' },
     }
@@ -244,10 +252,10 @@ return {
 
     ins_right {
       function()
-        return '▊'
+        return '🮈'
       end,
       color = { fg = colors.blue },
-      padding = { left = 1 },
+      padding = { left = 0 },
     }
 
     -- Now don't forget to initialize lualine
