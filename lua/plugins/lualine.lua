@@ -84,7 +84,7 @@ return {
 
     ins_left {
       function()
-        return '▍'
+        return '▎'
       end,
       color = { fg = colors.blue },      -- Sets highlighting of component
       padding = { left = 0, right = 0 }, -- We don't need space before this
@@ -95,15 +95,15 @@ return {
       function()
         if _G.os_icon then return _G.os_icon end
         local os_icons = {
-          EndeavourOS = " ",
-          Arch = " ",
-          Fedora = " ",
+          EndeavourOS = "",
+          Arch = "󰣇",
+          Fedora = "",
           Redhat = "󱄛",
           RedHatEnterprise = "󱄛",
           Debian = "",
           Ubuntu = "󰕈",
           Linux = "󰌽",
-          FreeBSD = " ",
+          FreeBSD = "",
           OSX = "",
           Windows = ""
         }
@@ -142,7 +142,7 @@ return {
         }
         return { fg = mode_color[vim.fn.mode()] }
       end,
-      padding = { right = 1 },
+      padding = { left = 0, right = 1 },
     }
 
     ins_left {
@@ -152,15 +152,18 @@ return {
     }
 
     ins_left {
+      'filetype',
+      icon_only = true,
+      colored = false,
+      color = { fg = colors.magenta },
+      padding = { left = 1, right = 0 }
+    }
+
+    ins_left {
       'filename',
-      symbols = {
-        modified = '',
-        readonly = '',
-        unnamed = '?',
-        newfile = '',
-      },
       cond = conditions.buffer_not_empty,
       color = { fg = colors.magenta, gui = 'bold' },
+      padding = { left = 0, right = 1 }
     }
 
     ins_left { 'location' }
@@ -178,15 +181,7 @@ return {
       },
     }
 
-    -- Insert mid section. You can make any number of sections in neovim :)
-    -- for lualine it's any number greater then 2
-    ins_left {
-      function()
-        return '%='
-      end,
-    }
-
-    ins_left {
+    ins_right {
       -- Lsp server name .
       function()
         local msg = 'Inactive'
@@ -209,6 +204,13 @@ return {
 
     ins_right {
       function()
+        return '%='
+      end,
+    }
+
+    -- To show if macros are recording
+    ins_right {
+      function()
         local reg = vim.fn.reg_recording()
         if reg == "" then return "" end -- not recording
         return reg
@@ -217,19 +219,24 @@ return {
       color = { fg = colors.red }
     }
 
+    ins_right {
+      'fileformat',
+      fmt = string.upper,
+      icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+      color = { fg = colors.fg },
+    }
+
     -- Add components to right sections
     ins_right {
       'o:encoding',       -- option component same as &encoding in viml
       fmt = string.upper, -- I'm not sure why it's upper case either ;)
       cond = conditions.hide_in_width,
-      color = { fg = colors.cyan, gui = 'bold' },
+      color = { fg = colors.fg },
     }
 
     ins_right {
-      'fileformat',
-      fmt = string.upper,
-      icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-      color = { fg = colors.cyan, gui = 'bold' },
+      'bo:filetype',
+      color = { fg = colors.blue, gui = 'bold' }
     }
 
     ins_right {
@@ -240,7 +247,7 @@ return {
 
     ins_right {
       'diff',
-      -- Is it me or the symbol for modified us really weird
+      -- The modified symbol is no longer weird; embrace Octo Icons
       symbols = { added = ' ', modified = ' ', removed = ' ' },
       diff_color = {
         added = { fg = colors.green },
@@ -248,14 +255,6 @@ return {
         removed = { fg = colors.red },
       },
       cond = conditions.hide_in_width,
-    }
-
-    ins_right {
-      function()
-        return '🮈'
-      end,
-      color = { fg = colors.blue },
-      padding = { left = 0 },
     }
 
     -- Now don't forget to initialize lualine
