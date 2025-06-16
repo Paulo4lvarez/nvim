@@ -18,12 +18,12 @@ return {
             default_workspace = "notes",
           },
         },
-        ["core.latex.renderer"] = {
-          config = {
-            conceal = true,
-            render_on_enter = true,
-          }
-        }
+        -- ["core.latex.renderer"] = {
+        -- config = {
+        -- conceal = true,
+        -- render_on_enter = true,
+        -- }
+        -- }
         -- ["core.presenter"] = {},
       }
     })
