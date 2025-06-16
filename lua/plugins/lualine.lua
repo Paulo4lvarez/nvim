@@ -155,6 +155,7 @@ return {
       'filetype',
       icon_only = true,
       colored = false,
+      cond = conditions.buffer_not_empty,
       color = { fg = colors.magenta },
       padding = { left = 1, right = 0 }
     }
@@ -236,6 +237,7 @@ return {
 
     ins_right {
       'bo:filetype',
+      cond = conditions.buffer_not_empty,
       color = { fg = colors.blue, gui = 'bold' }
     }
 
