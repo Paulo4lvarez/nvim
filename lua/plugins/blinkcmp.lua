@@ -11,15 +11,15 @@ return {
         "grug-far",
       }
       return not vim.tbl_contains(disabled_ft, vim.bo.filetype)
-          and vim.b.completion ~= false
-          and vim.bo.buftype ~= "prompt"
+        and vim.b.completion ~= false
+        and vim.bo.buftype ~= "prompt"
     end
 
     require("blink.cmp").setup({
       enabled = is_enabled,
       cmdline = {
-        keymap = { preset = 'inherit' },
-        completion = { menu = { auto_show = true } }
+        keymap = { preset = "inherit" },
+        completion = { menu = { auto_show = true } },
       },
       keymap = {
         preset = "super-tab",
@@ -32,36 +32,40 @@ return {
             components = {
               kind_icon = {
                 text = function(ctx)
-                  local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
+                  local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
                   return kind_icon
                 end,
                 -- (optional) use highlights from mini.icons
                 highlight = function(ctx)
-                  local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                  local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
                   return hl
                 end,
               },
               kind = {
                 -- (optional) use highlights from mini.icons
                 highlight = function(ctx)
-                  local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                  local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
                   return hl
                 end,
-              }
-            }
-          }
+              },
+            },
+          },
         },
         documentation = {
           auto_show = true,
           window = {
-            border = "solid"
-          }
+            border = "solid",
+          },
         },
       },
       snippets = { preset = "luasnip" },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
+        per_filetype = {
+          sql = { "snippets", "dadbod", "buffer" },
+        },
         providers = {
+          dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
           cmdline = {
             -- ignores cmdline completions when executing shell commands
             enabled = function()
@@ -72,5 +76,5 @@ return {
       },
       fuzzy = { implementation = "prefer_rust" },
     })
-  end
+  end,
 }
